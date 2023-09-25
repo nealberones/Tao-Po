@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://d1um52eda24bg"]
+
+[ext_resource type="Texture2D" uid="uid://boiuou1or2ggv" path="res://Assets/kenney_platformer-art-pixel-redux/Tilemap/tilemap_packed.png" id="1_e3k4l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvfy2"]
+atlas = ExtResource("1_e3k4l")
+region = Rect2(420, 63, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsnvu"]
+atlas = ExtResource("1_e3k4l")
+region = Rect2(441, 63, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nihiu"]
+atlas = ExtResource("1_e3k4l")
+region = Rect2(546, 63, 21, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ivcx"]
+atlas = ExtResource("1_e3k4l")
+region = Rect2(567, 63, 21, 21)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvfy2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsnvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nihiu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ivcx")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 3.0
+}]

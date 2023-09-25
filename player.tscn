@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3 uid="uid://bcqk48j3hep2c"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_hx8wr"]
+[ext_resource type="Texture2D" uid="uid://o8sp2g6u3ifx" path="res://Assets/kenney_pixel-platformer/Tilemap/characters_packed.png" id="2_faagt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vegfw"]
+atlas = ExtResource("2_faagt")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oqil"]
+atlas = ExtResource("2_faagt")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnrof"]
+atlas = ExtResource("2_faagt")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffng4"]
+atlas = ExtResource("2_faagt")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7apoj"]
+atlas = ExtResource("2_faagt")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgcvv"]
+atlas = ExtResource("2_faagt")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uabha"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vegfw")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1oqil")
+}],
+"loop": false,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnrof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffng4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7apoj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgcvv")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hu1sp"]
+size = Vector2(10, 14)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_hx8wr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uabha")
+animation = &"Idle"
+autoplay = "Walk"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_hu1sp")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
