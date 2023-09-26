@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6dqe46fyrcbq"]
+
+[ext_resource type="Script" path="res://Villager1.gd" id="1_bep7b"]
+[ext_resource type="SpriteFrames" uid="uid://de4pm71kfn814" path="res://villager_1.tres" id="2_0rc4r"]
+
+[node name="Villager" type="Node2D"]
+script = ExtResource("1_bep7b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_0rc4r")
+animation = &"Idle"
+frame_progress = 0.355223
+flip_h = true

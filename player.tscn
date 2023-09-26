@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bcqk48j3hep2c"]
+[gd_scene load_steps=16 format=3 uid="uid://bcqk48j3hep2c"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_hx8wr"]
 [ext_resource type="Texture2D" uid="uid://o8sp2g6u3ifx" path="res://Assets/kenney_pixel-platformer/Tilemap/characters_packed.png" id="2_faagt"]
+[ext_resource type="Texture2D" uid="uid://buyos0pjbtqsn" path="res://Assets/kenney_input-prompts-pixel-16/Tilemap/tilemap_packed.png" id="3_h34l8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vegfw"]
 atlas = ExtResource("2_faagt")
@@ -66,6 +67,31 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hu1sp"]
 size = Vector2(10, 14)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0d2pq"]
+atlas = ExtResource("3_h34l8")
+region = Rect2(304, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty1m1"]
+atlas = ExtResource("3_h34l8")
+region = Rect2(304, 160, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yjp6h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0d2pq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ty1m1")
+}],
+"loop": true,
+"name": &"Pressme",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y6lhv"]
+size = Vector2(33, 23)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_hx8wr")
 
@@ -82,3 +108,19 @@ shape = SubResource("RectangleShape2D_hu1sp")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
+
+[node name="EPrompt" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_yjp6h")
+animation = &"Pressme"
+autoplay = "Pressme"
+frame_progress = 0.34296
+
+[node name="House_detect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="House_detect"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_y6lhv")
+
+[connection signal="area_entered" from="House_detect" to="." method="_on_house_detect_area_entered"]
+[connection signal="area_exited" from="House_detect" to="." method="_on_house_detect_area_exited"]

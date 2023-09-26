@@ -1,5 +1,5 @@
 extends Node2D
-class_name Villager
+class_name Villager 
 
 @export var SKIN: String = "res://villager_1.tres"
 @onready var animatedSprite = $AnimatedSprite2D
