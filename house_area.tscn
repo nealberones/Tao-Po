@@ -1,12 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwkqdxtdqc3mf"]
+[gd_scene load_steps=8 format=3 uid="uid://dwkqdxtdqc3mf"]
 
 [ext_resource type="Script" path="res://house_area.gd" id="1_wxi5q"]
+[ext_resource type="Texture2D" uid="uid://ckqov7nooecrw" path="res://Assets/image_2023-09-27_105358116-fotor-bg-remover-2023092710549.png" id="2_4iypo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0t746"]
 size = Vector2(100, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npp1s"]
+atlas = ExtResource("2_4iypo")
+region = Rect2(0, 2, 405, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py816"]
+atlas = ExtResource("2_4iypo")
+region = Rect2(0, 167, 405, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slooa"]
+atlas = ExtResource("2_4iypo")
+region = Rect2(0, 332, 405, 165)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dpsb5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npp1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_py816")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slooa")
+}],
+"loop": false,
+"name": &"Showcards",
+"speed": 5.0
+}]
 
 [node name="HouseArea" type="Area2D"]
 script = ExtResource("1_wxi5q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0t746")
+
+[node name="CardsSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -25)
+scale = Vector2(0.143939, 0.143939)
+sprite_frames = SubResource("SpriteFrames_dpsb5")
+animation = &"Showcards"

@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://bcqk48j3hep2c"]
+[gd_scene load_steps=21 format=3 uid="uid://bcqk48j3hep2c"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_hx8wr"]
 [ext_resource type="Texture2D" uid="uid://o8sp2g6u3ifx" path="res://Assets/kenney_pixel-platformer/Tilemap/characters_packed.png" id="2_faagt"]
 [ext_resource type="Texture2D" uid="uid://buyos0pjbtqsn" path="res://Assets/kenney_input-prompts-pixel-16/Tilemap/tilemap_packed.png" id="3_h34l8"]
+[ext_resource type="Texture2D" uid="uid://ckqov7nooecrw" path="res://Assets/image_2023-09-27_105358116-fotor-bg-remover-2023092710549.png" id="4_3trua"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vegfw"]
 atlas = ExtResource("2_faagt")
@@ -92,6 +93,35 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y6lhv"]
 size = Vector2(33, 23)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_npp1s"]
+atlas = ExtResource("4_3trua")
+region = Rect2(0, 2, 405, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py816"]
+atlas = ExtResource("4_3trua")
+region = Rect2(0, 167, 405, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slooa"]
+atlas = ExtResource("4_3trua")
+region = Rect2(0, 332, 405, 165)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jd7b1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npp1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_py816")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slooa")
+}],
+"loop": false,
+"name": &"Showcards",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_hx8wr")
 
@@ -114,13 +144,19 @@ position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_yjp6h")
 animation = &"Pressme"
 autoplay = "Pressme"
-frame_progress = 0.34296
+frame_progress = 0.375991
 
 [node name="House_detect" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="House_detect"]
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_y6lhv")
+
+[node name="CardsSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -25)
+scale = Vector2(0.143939, 0.143939)
+sprite_frames = SubResource("SpriteFrames_jd7b1")
+animation = &"Showcards"
 
 [connection signal="area_entered" from="House_detect" to="." method="_on_house_detect_area_entered"]
 [connection signal="area_exited" from="House_detect" to="." method="_on_house_detect_area_exited"]
