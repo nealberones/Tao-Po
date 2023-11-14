@@ -11,15 +11,18 @@ class_name Player
 @onready var animatedSprite = $AnimatedSprite2D
 @onready var Ekey = $EPrompt
 @onready var cards = $CardsSprite
+@onready var camera = $Camera2D2
+
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var near_villager = false;
+var near_villager = false
+
 #var GameGlobalSingleton.color_game_running = false;
 
 func _ready():
 	hide_prompt()
 	cards.hide()
 	
-
+	
 func _process(delta):
 	
 	# Starts color game when E is pressed near a villager
@@ -123,10 +126,10 @@ func _on_house_detect_area_exited(area):
 func begin_color_game():
 	GameGlobalSingleton.color_game_running = true
 	cards.show()
-	$Camera2D.zoom = Vector2(4, 4)
+	camera.zoom = Vector2(4, 4)
 	
 func end_color_game():
 	GameGlobalSingleton.color_game_running = false
 	cards.hide()
-	$Camera2D.zoom = Vector2(2, 2)
+	camera.zoom = Vector2(2, 2)
 

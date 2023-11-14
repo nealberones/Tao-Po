@@ -1151,14 +1151,11 @@ position = Vector2(660, 143)
 [node name="Player" parent="." instance=ExtResource("2_6s500")]
 position = Vector2(136, 310)
 slide_on_ceiling = false
+SPEED = 7
 JUMP_VELOCITY = -400
+JUMP_RELEASE_FORCE = -120
 MAX_SPEED = 40
 ACCELERATION = 2
 FRICTION = 15
 
-[node name="Camera2D2" type="Camera2D" parent="Player"]
-zoom = Vector2(2, 2)
-position_smoothing_enabled = true
-
-[node name="PauseMenu" parent="Player/Camera2D2" instance=ExtResource("11_pdhvp")]
-clip_contents = true
+[node name="PauseMenu" parent="." instance=ExtResource("11_pdhvp")]

@@ -135,10 +135,6 @@ flip_h = true
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_hu1sp")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
-position_smoothing_enabled = true
-
 [node name="EPrompt" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_yjp6h")
