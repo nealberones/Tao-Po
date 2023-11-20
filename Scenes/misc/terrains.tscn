@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5cxip00cvmce"]
+[gd_scene load_steps=8 format=3 uid="uid://b5cxip00cvmce"]
 
 [ext_resource type="Texture2D" uid="uid://b6lalsfoejfb6" path="res://Assets/final/revised_terrain.png" id="1_gfimy"]
 [ext_resource type="Texture2D" uid="uid://boiuou1or2ggv" path="res://Assets/kenney_platformer-art-pixel-redux/Tilemap/tilemap_packed.png" id="1_wvmlk"]
+[ext_resource type="Texture2D" uid="uid://ca7w228hiahja" path="res://Assets/final/platformsSS.png" id="2_tql0v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r567d"]
 texture = ExtResource("1_gfimy")
@@ -132,6 +133,46 @@ texture_region_size = Vector2i(32, 32)
 2:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:6/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 2:6/0/physics_layer_1/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8uwg4"]
+texture = ExtResource("2_tql0v")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_1/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_1/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_1/angular_velocity = 0.0
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+4:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_1/angular_velocity = 0.0
+5:0/0 = 0
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+5:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_1/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pbukk"]
 texture = ExtResource("1_wvmlk")
@@ -4698,6 +4739,7 @@ terrain_set_0/terrain_0/name = "Roads"
 terrain_set_0/terrain_0/color = Color(0.788235, 0, 0.196078, 1)
 sources/2 = SubResource("TileSetAtlasSource_pbukk")
 sources/0 = SubResource("TileSetAtlasSource_r567d")
+sources/1 = SubResource("TileSetAtlasSource_8uwg4")
 
 [node name="Terrains" type="TileMap"]
 tile_set = SubResource("TileSet_6bvc6")
