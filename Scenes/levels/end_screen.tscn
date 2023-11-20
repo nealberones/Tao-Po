@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://eelpj0fcf5rp"]
+
+[ext_resource type="Script" path="res://Scripts/end_screen.gd" id="1_0da4a"]
+[ext_resource type="Texture2D" uid="uid://yh6kgsojak65" path="res://Assets/kenney_pixel-platformer/Background/background_0001.png" id="1_ixkym"]
+
+[node name="EndScreen" type="Node2D"]
+script = ExtResource("1_0da4a")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -1.0
+offset_top = 2.0
+offset_right = 1279.0
+offset_bottom = 720.0
+texture = ExtResource("1_ixkym")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 251.0
+offset_top = 59.0
+offset_right = 955.0
+offset_bottom = 104.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+text = "After achieving                                  votes this election...."
+
+[node name="Score" type="Label" parent="."]
+offset_left = 488.0
+offset_top = 59.0
+offset_right = 710.0
+offset_bottom = 104.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+text = "*TOTALSCORE*"
+
+[node name="Score2" type="Label" parent="."]
+offset_left = 301.0
+offset_top = 198.0
+offset_right = 523.0
+offset_bottom = 243.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+text = "YOU WON/LOST the barangay SK elections!
+
+You are on the road to representing, hearing, and
+serving the members of your community"
+
+[node name="Exit to Menu" type="Button" parent="."]
+offset_left = 533.0
+offset_top = 465.0
+offset_right = 639.0
+offset_bottom = 496.0
+text = "Exit to Menu"
+
+[node name="Quit Game" type="Button" parent="."]
+offset_left = 540.0
+offset_top = 517.0
+offset_right = 632.0
+offset_bottom = 548.0
+text = "Quit Game"
+
+[connection signal="pressed" from="Exit to Menu" to="." method="_on_exit_to_menu_pressed"]
+[connection signal="pressed" from="Quit Game" to="." method="_on_quit_game_pressed"]

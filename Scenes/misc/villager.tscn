@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6dqe46fyrcbq"]
+
+[ext_resource type="Script" path="res://Scripts/villager.gd" id="1_dnepp"]
+[ext_resource type="SpriteFrames" uid="uid://dv4ke4x71x1mu" path="res://Animations/villager_1.tres" id="2_0rc4r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3cst"]
+size = Vector2(144, 65)
+
+[node name="Villager" type="Node2D"]
+script = ExtResource("1_dnepp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_0rc4r")
+animation = &"Idle"
+flip_h = true
+
+[node name="VillagerArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VillagerArea"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_i3cst")
+
+[connection signal="body_entered" from="VillagerArea" to="." method="_on_villager_area_body_entered"]
+[connection signal="body_exited" from="VillagerArea" to="." method="_on_villager_area_body_exited"]
