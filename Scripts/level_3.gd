@@ -12,6 +12,7 @@ extends Node2D
 var paused = false
 var first_passed = false
 var level_start
+
 func _ready():
 	player.set_process_priority(3)
 	pause_menu.hide()
@@ -48,14 +49,15 @@ func pauseMenu():
 func endCard():
 	end_card.show()
 	Engine.time_scale = 0
+	
+func _on_timer_timeout():
+	endCard()
+
 
 func _on_text_trigger_body_entered(body):
 	if body is Player and not first_passed:
 		first_passed = true
-		text_box.queue_text("Welcome to Purok Laud, your home purok where you know everyone and everyone knows you!")
-		text_box.queue_text("Even with your good reputation here, work to gain the votes of the residents of Purok Laud!")
-		text_box.queue_text("You will be given limited time to accomplish your goal.")
-		text_box.queue_text("Are you ready?")
-	
-func _on_timer_timeout():
-	endCard()
+		text_box.queue_text("The last purok in your barangay, Purok Dilis!")
+		text_box.queue_text("Did I mention that this is your opponent’s home turf?")
+		text_box.queue_text("Votes will be harder to get given the popularity of your opponent in this specific purok.")
+		text_box.queue_text("But you are determined to win! ")

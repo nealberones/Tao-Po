@@ -12,6 +12,7 @@ extends Node2D
 var paused = false
 var first_passed = false
 var level_start
+
 func _ready():
 	player.set_process_priority(3)
 	pause_menu.hide()
@@ -48,14 +49,17 @@ func pauseMenu():
 func endCard():
 	end_card.show()
 	Engine.time_scale = 0
+	
+func _on_timer_timeout():
+	endCard()
+
 
 func _on_text_trigger_body_entered(body):
 	if body is Player and not first_passed:
 		first_passed = true
-		text_box.queue_text("Welcome to Purok Laud, your home purok where you know everyone and everyone knows you!")
-		text_box.queue_text("Even with your good reputation here, work to gain the votes of the residents of Purok Laud!")
-		text_box.queue_text("You will be given limited time to accomplish your goal.")
-		text_box.queue_text("Are you ready?")
-	
-func _on_timer_timeout():
-	endCard()
+		text_box.queue_text("Another day, another purok! Welcome to Purok Handa which has more houses. ")
+		text_box.queue_text("You will be given 2 minutes and 30 seconds to perform your house-to-house campaigning in this area.")
+		text_box.queue_text("The catch now is your rival candidate will also be campaigning in the same purok as you.")
+		text_box.queue_text("Another challenge faced in the reality of the Sangguaniang Kabataan elections are vote buying- and the destroying of the reputation of their opponents through gossip and fault-finding.")
+		text_box.queue_text("and the destroying of the reputation of their opponents through gossip and fault-finding.")
+		text_box.queue_text("Goodluck!")
