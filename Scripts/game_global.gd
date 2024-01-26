@@ -33,6 +33,7 @@ func restart_level():
 	Engine.time_scale = 1
 	
 func exit_to_menu():
-	get_tree().change_scene_to_file("res://menu.tscn")
+	current_level = 0
+	get_tree().change_scene_to_file("res://Scenes/levels/menu.tscn")
 	
 

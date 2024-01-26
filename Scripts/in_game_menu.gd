@@ -21,7 +21,7 @@ func _on_quit_game_pressed():
 	get_tree().quit()
 
 func _on_exit_to_menu_pressed():
-	get_tree().change_scene_to_file("res://Scenes/levels/menu.tscn")
+	GameGlobalSingleton.exit_to_menu()
 	Engine.time_scale = 1
 	
 	
