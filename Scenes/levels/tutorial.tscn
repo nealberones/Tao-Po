@@ -3644,11 +3644,11 @@ text = "Press Esc to
 quit to menu"
 label_settings = SubResource("LabelSettings_0berq")
 
-[connection signal="area_entered" from="Player/House_detect" to="Player" method="_on_house_detect_area_entered" flags=18]
-[connection signal="area_exited" from="Player/House_detect" to="Player" method="_on_house_detect_area_exited" flags=18]
+[connection signal="area_entered" from="Player/House_detect" to="Player" method="_on_house_detect_area_entered"]
+[connection signal="area_exited" from="Player/House_detect" to="Player" method="_on_house_detect_area_exited"]
 [connection signal="body_entered" from="TextTrigger" to="." method="_on_text_trigger_body_entered"]
 [connection signal="body_entered" from="TextTrigger2" to="." method="_on_text_trigger_2_body_entered"]
 [connection signal="body_entered" from="TextTrigger3" to="." method="_on_text_trigger_3_body_entered"]
 [connection signal="body_entered" from="TextTrigger4" to="." method="_on_text_trigger_4_body_entered"]
-[connection signal="body_entered" from="Villager/VillagerArea" to="Villager" method="_on_villager_area_body_entered" flags=18]
-[connection signal="body_exited" from="Villager/VillagerArea" to="Villager" method="_on_villager_area_body_exited" flags=18]
+[connection signal="body_entered" from="Villager/VillagerArea" to="Villager" method="_on_villager_area_body_entered"]
+[connection signal="body_exited" from="Villager/VillagerArea" to="Villager" method="_on_villager_area_body_exited"]
