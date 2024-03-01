@@ -1253,10 +1253,10 @@ script = ExtResource("1_r3o58")
 metadata/_edit_vertical_guides_ = []
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -5488.0
-offset_top = -1496.0
-offset_right = -2734.0
-offset_bottom = 21.0
+offset_left = -5408.0
+offset_top = -1192.0
+offset_right = -2654.0
+offset_bottom = 325.0
 scale = Vector2(3.07315, 2.79786)
 texture = ExtResource("2_wvhmv")
 metadata/_edit_use_anchors_ = true
