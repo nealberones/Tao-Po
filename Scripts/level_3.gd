@@ -7,8 +7,8 @@ extends Node2D
 @onready var player = $Player
 @onready var text_box = $TextBox
 @onready var timer = $Timer
-@onready var time_left_label = $CanvasLayer/TimeLeftLabel
-
+@onready var time_left_label = $CanvasLayer2/TimeLeftLabel
+@onready var player_score_label = $CanvasLayer2/Panel/PlayerScore
 var paused = false
 var first_passed = false
 var level_start
@@ -22,6 +22,9 @@ func _ready():
 func _process(delta):
 	#display remaining time on timer
 	time_left_label.text = str(int(timer.time_left))
+	
+	#display player's current score
+	player_score_label.text = "Player Score: "+str(GameGlobalSingleton.l3_score)
 	
 	# Pausing the game
 	if Input.is_action_just_pressed("pause") and not GameGlobalSingleton.color_game_running:
@@ -47,6 +50,7 @@ func pauseMenu():
 	paused = not paused
 
 func endCard():
+	end_card.score.text = str(GameGlobalSingleton.l3_score)
 	end_card.show()
 	Engine.time_scale = 0
 	

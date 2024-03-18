@@ -1,5 +1,5 @@
 extends Node2D
-
+@onready var score = $VBoxContainer/VBoxContainer/Score
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

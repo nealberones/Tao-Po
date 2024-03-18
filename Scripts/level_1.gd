@@ -1,14 +1,14 @@
 extends Node2D
 
 @export var villager_num = 5
-
 @onready var pause_menu = $Player/Camera2D2/PauseMenu
 @onready var end_card = $Player/Camera2D2/EndCard
 @onready var player = $Player
 @onready var text_box = $TextBox
 @onready var timer = $Timer
 @onready var time_left_label = $CanvasLayer/TimeLeftLabel
-
+@onready var player_score_label = $CanvasLayer/Panel/PlayerScore
+# Weather Parameter
 var paused = false
 var first_passed = false
 var level_start
@@ -21,7 +21,8 @@ func _ready():
 func _process(delta):
 	#display remaining time on timer
 	time_left_label.text = str(int(timer.time_left))
-	
+	#display player score using label
+	player_score_label.text = "Player Score: "+str(GameGlobalSingleton.l1_score)
 	# Pausing the game
 	if Input.is_action_just_pressed("pause") and not GameGlobalSingleton.color_game_running:
 		pauseMenu()
@@ -46,6 +47,7 @@ func pauseMenu():
 	paused = not paused
 
 func endCard():
+	end_card.score.text = str(GameGlobalSingleton.l1_score)
 	end_card.show()
 	Engine.time_scale = 0
 

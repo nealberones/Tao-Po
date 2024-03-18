@@ -308,6 +308,7 @@ layer_0/tile_data = PackedInt32Array(-524246, 0, 0, -458710, 0, 1, -393174, 0, 3
 
 [node name="HouseArea" parent="." instance=ExtResource("13_fdods")]
 position = Vector2(294, 73)
+current_level = 2
 
 [node name="Villager" parent="HouseArea" instance=ExtResource("14_f26dr")]
 position = Vector2(18, 15)
@@ -315,6 +316,7 @@ SKIN = "res://Animations/villager_3.tres"
 
 [node name="HouseArea2" parent="." instance=ExtResource("13_fdods")]
 position = Vector2(880, 112)
+current_level = 2
 
 [node name="Villager3" parent="HouseArea2" instance=ExtResource("14_f26dr")]
 position = Vector2(-24, 8)
@@ -324,29 +326,34 @@ position = Vector2(0, 8)
 
 [node name="HouseArea3" parent="." instance=ExtResource("13_fdods")]
 position = Vector2(1376, 88)
+current_level = 2
 
 [node name="Villager5" parent="HouseArea3" instance=ExtResource("14_f26dr")]
 position = Vector2(-4, 12)
 
 [node name="HouseArea4" parent="." instance=ExtResource("13_fdods")]
 position = Vector2(2112, 304)
+current_level = 2
 
 [node name="Villager6" parent="HouseArea4" instance=ExtResource("14_f26dr")]
 position = Vector2(0, 8)
 
 [node name="HouseArea5" parent="." instance=ExtResource("13_fdods")]
 position = Vector2(2688, 112)
+current_level = 2
 
 [node name="Villager7" parent="HouseArea5" instance=ExtResource("14_f26dr")]
 
 [node name="HouseArea6" parent="." instance=ExtResource("13_fdods")]
 position = Vector2(-296, 560)
+current_level = 2
 
 [node name="Villager5" parent="HouseArea6" instance=ExtResource("14_f26dr")]
 position = Vector2(0, 8)
 
 [node name="HouseArea7" parent="." instance=ExtResource("13_fdods")]
 position = Vector2(2664, 624)
+current_level = 2
 
 [node name="Villager6" parent="HouseArea7" instance=ExtResource("14_f26dr")]
 position = Vector2(-32, 8)
@@ -361,6 +368,7 @@ SKIN = "res://Animations/villager_3q.tres"
 
 [node name="HouseArea8" parent="." instance=ExtResource("13_fdods")]
 position = Vector2(780, 332)
+current_level = 2
 
 [node name="Villager9" parent="HouseArea8" instance=ExtResource("14_f26dr")]
 position = Vector2(-4, 12)
@@ -368,6 +376,7 @@ SKIN = "res://Animations/villager_2.tres"
 
 [node name="HouseArea9" parent="." instance=ExtResource("13_fdods")]
 position = Vector2(1432, 624)
+current_level = 2
 
 [node name="Villager10" parent="HouseArea9" instance=ExtResource("14_f26dr")]
 position = Vector2(2.28882e-05, 7.99997)
@@ -378,6 +387,7 @@ SKIN = "res://Animations/villager_3.tres"
 
 [node name="HouseArea10" parent="." instance=ExtResource("13_fdods")]
 position = Vector2(2440, 1064)
+current_level = 2
 
 [node name="Villager12" parent="HouseArea10" instance=ExtResource("14_f26dr")]
 position = Vector2(0, 8)
@@ -408,24 +418,9 @@ offset_bottom = 51.0
 text = "Player's Score: 0"
 label_settings = SubResource("LabelSettings_5it5j")
 
-[node name="Panel2" type="Panel" parent="CanvasLayer"]
-offset_left = 1008.0
-offset_top = 8.0
-offset_right = 1264.0
-offset_bottom = 80.0
-
-[node name="RivalScore" type="Label" parent="CanvasLayer/Panel2"]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 16.0
-offset_right = 184.0
-offset_bottom = 51.0
-text = "Rival's Score: 0	"
-label_settings = SubResource("LabelSettings_5it5j")
-
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 180.0
+wait_time = 90.0
 one_shot = true
 
 [node name="Terrains" parent="." instance=ExtResource("15_ahuug")]

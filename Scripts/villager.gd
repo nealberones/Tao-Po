@@ -2,8 +2,13 @@ extends Node2D
 class_name Villager 
 
 @export var SKIN: String = "res://Animations/villager_1.tres"
+@export var increment_val : float
 @export var color_num = 0
 @onready var animatedSprite = $AnimatedSprite2D
+
+# FOR RIVAL SYSTEM: Decrement a certain number of points/ timer 
+# Per villager, set decremental value 
+# Mistakes decrement score by certain number (can go negative)
 
 var near_player = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,6 +22,7 @@ func _process(delta):
 		if GameGlobalSingleton.house_current_frame == GameGlobalSingleton.player_current_frame:
 			print(GameGlobalSingleton.player_current_frame)
 			print(GameGlobalSingleton.house_current_frame)
+			# Add score to player
 			animatedSprite.play("Green")
 		else:
 			print(GameGlobalSingleton.player_current_frame)

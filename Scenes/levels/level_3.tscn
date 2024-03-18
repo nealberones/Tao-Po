@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://5dhwhl1jk7yx"]
+[gd_scene load_steps=46 format=3 uid="uid://5dhwhl1jk7yx"]
 
 [ext_resource type="Script" path="res://Scripts/level_3.gd" id="1_w0lnr"]
 [ext_resource type="Texture2D" uid="uid://danah4vgenmck" path="res://Assets/kenney_pixel-platformer/Background/background_0000.png" id="2_cnewq"]
@@ -299,6 +299,15 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_l48or"]
+font = ExtResource("12_j0rab")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_op2ha"]
+font = ExtResource("12_j0rab")
+font_size = 32
+
 [node name="level3" type="Node2D"]
 script = ExtResource("1_w0lnr")
 
@@ -330,7 +339,7 @@ shape = SubResource("RectangleShape2D_dhlao")
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 200.0
+wait_time = 120.0
 one_shot = true
 
 [node name="TextBox" parent="." instance=ExtResource("5_cs103")]
@@ -386,6 +395,7 @@ shape = SubResource("RectangleShape2D_w10t3")
 
 [node name="HouseArea" parent="." instance=ExtResource("15_mnqvs")]
 position = Vector2(-904, -351)
+current_level = 3
 
 [node name="Villager2" parent="HouseArea" instance=ExtResource("16_5ami2")]
 position = Vector2(-4, 9)
@@ -395,6 +405,7 @@ position = Vector2(27, 10)
 
 [node name="HouseArea2" parent="." instance=ExtResource("15_mnqvs")]
 position = Vector2(666, -504)
+current_level = 3
 
 [node name="Villager" parent="HouseArea2" instance=ExtResource("16_5ami2")]
 position = Vector2(-23, 9)
@@ -455,6 +466,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="HouseArea3" parent="." instance=ExtResource("15_mnqvs")]
 position = Vector2(2177, -411)
+current_level = 3
 
 [node name="Villager" parent="HouseArea3" instance=ExtResource("16_5ami2")]
 position = Vector2(-17, 9)
@@ -465,6 +477,7 @@ SKIN = "res://Animations/villager_3.tres"
 
 [node name="HouseArea4" parent="." instance=ExtResource("15_mnqvs")]
 position = Vector2(3595, -1078)
+current_level = 3
 
 [node name="Villager" parent="HouseArea4" instance=ExtResource("16_5ami2")]
 position = Vector2(-16, 5)
@@ -480,12 +493,14 @@ SKIN = "res://Animations/villager_3.tres"
 
 [node name="HouseArea5" parent="." instance=ExtResource("15_mnqvs")]
 position = Vector2(4511, -1078)
+current_level = 3
 
 [node name="Villager" parent="HouseArea5" instance=ExtResource("16_5ami2")]
 position = Vector2(-3, 6)
 
 [node name="HouseArea6" parent="." instance=ExtResource("15_mnqvs")]
 position = Vector2(1193, 38)
+current_level = 3
 
 [node name="Villager" parent="HouseArea6" instance=ExtResource("16_5ami2")]
 position = Vector2(-1, 8)
@@ -493,6 +508,7 @@ SKIN = "res://Animations/villager_2.tres"
 
 [node name="HouseArea7" parent="." instance=ExtResource("15_mnqvs")]
 position = Vector2(2103, 679)
+current_level = 3
 
 [node name="Villager" parent="HouseArea7" instance=ExtResource("16_5ami2")]
 position = Vector2(-5, 8)
@@ -500,6 +516,7 @@ SKIN = "res://Animations/villager_2.tres"
 
 [node name="HouseArea8" parent="." instance=ExtResource("15_mnqvs")]
 position = Vector2(5463, 903)
+current_level = 3
 
 [node name="Villager" parent="HouseArea8" instance=ExtResource("16_5ami2")]
 position = Vector2(-13, 8)
@@ -510,9 +527,36 @@ SKIN = "res://Animations/villager_2.tres"
 
 [node name="HouseArea9" parent="." instance=ExtResource("15_mnqvs")]
 position = Vector2(3516, -122)
+current_level = 3
 
 [node name="Villager" parent="HouseArea9" instance=ExtResource("16_5ami2")]
 position = Vector2(15, 8)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="TimeLeftLabel" type="Label" parent="CanvasLayer2"]
+offset_left = 592.0
+offset_top = 64.0
+offset_right = 746.0
+offset_bottom = 136.0
+text = "PLACEHOLDER"
+label_settings = SubResource("LabelSettings_l48or")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="CanvasLayer2"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 264.0
+offset_bottom = 80.0
+
+[node name="PlayerScore" type="Label" parent="CanvasLayer2/Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 206.0
+offset_bottom = 51.0
+text = "Player's Score: 0"
+label_settings = SubResource("LabelSettings_op2ha")
 
 [connection signal="body_entered" from="TextTrigger" to="." method="_on_text_trigger_body_entered"]
 [connection signal="area_entered" from="Player/House_detect" to="Player" method="_on_house_detect_area_entered" flags=18]
