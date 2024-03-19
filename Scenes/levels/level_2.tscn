@@ -311,25 +311,25 @@ position = Vector2(294, 73)
 current_level = 2
 
 [node name="Villager" parent="HouseArea" instance=ExtResource("14_f26dr")]
-position = Vector2(18, 15)
+position = Vector2(2, 15)
 SKIN = "res://Animations/villager_3.tres"
 
 [node name="HouseArea2" parent="." instance=ExtResource("13_fdods")]
-position = Vector2(880, 112)
+position = Vector2(968, 112)
 current_level = 2
 
 [node name="Villager3" parent="HouseArea2" instance=ExtResource("14_f26dr")]
-position = Vector2(-24, 8)
+position = Vector2(-16, 8)
 
 [node name="Villager4" parent="HouseArea2" instance=ExtResource("14_f26dr")]
-position = Vector2(0, 8)
+position = Vector2(16, 8)
 
 [node name="HouseArea3" parent="." instance=ExtResource("13_fdods")]
-position = Vector2(1376, 88)
+position = Vector2(1352, 112)
 current_level = 2
 
 [node name="Villager5" parent="HouseArea3" instance=ExtResource("14_f26dr")]
-position = Vector2(-4, 12)
+position = Vector2(0, 8)
 
 [node name="HouseArea4" parent="." instance=ExtResource("13_fdods")]
 position = Vector2(2112, 304)
@@ -339,7 +339,7 @@ current_level = 2
 position = Vector2(0, 8)
 
 [node name="HouseArea5" parent="." instance=ExtResource("13_fdods")]
-position = Vector2(2688, 112)
+position = Vector2(2688, 120)
 current_level = 2
 
 [node name="Villager7" parent="HouseArea5" instance=ExtResource("14_f26dr")]
@@ -480,6 +480,7 @@ metadata/_edit_use_anchors_ = true
 [node name="EndCard" parent="Player/Camera2D2" instance=ExtResource("10_vjoc5")]
 position = Vector2(0, 40)
 
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="TextTrigger" to="." method="_on_text_trigger_body_entered"]
 [connection signal="area_entered" from="Player/House_detect" to="Player" method="_on_house_detect_area_entered" flags=18]
 [connection signal="area_exited" from="Player/House_detect" to="Player" method="_on_house_detect_area_exited" flags=18]

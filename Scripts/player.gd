@@ -111,12 +111,16 @@ func show_prompt():
 
 func _on_house_detect_area_entered(area):
 	if area is HouseArea:
-		near_villager = true 
+		print("House area entered!")
+		near_villager = true
+		area.player_in_area = true 
 		show_prompt()
 
 func _on_house_detect_area_exited(area):
 	if area is HouseArea: 
+		print("House area exited!")
 		near_villager = false
+		area.player_in_area = false
 		Ekey.hide()
 
 func begin_color_game():

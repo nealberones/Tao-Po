@@ -559,5 +559,6 @@ text = "Player's Score: 0"
 label_settings = SubResource("LabelSettings_op2ha")
 
 [connection signal="body_entered" from="TextTrigger" to="." method="_on_text_trigger_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Player/House_detect" to="Player" method="_on_house_detect_area_entered" flags=18]
 [connection signal="area_exited" from="Player/House_detect" to="Player" method="_on_house_detect_area_exited" flags=18]

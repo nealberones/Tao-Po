@@ -73,3 +73,9 @@ position = Vector2(9.53674e-07, -23)
 scale = Vector2(0.599814, 0.599814)
 sprite_frames = SubResource("SpriteFrames_fwcgu")
 animation = &"Final_cards"
+
+[node name="RivalTimer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
+[connection signal="timeout" from="RivalTimer" to="." method="_on_rival_timer_timeout"]

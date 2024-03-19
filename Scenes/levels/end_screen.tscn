@@ -13,31 +13,25 @@ offset_right = 1279.0
 offset_bottom = 720.0
 texture = ExtResource("1_ixkym")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 251.0
-offset_top = 59.0
-offset_right = 955.0
-offset_bottom = 104.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 30
-text = "After achieving                                  votes this election...."
+[node name="Exit to Menu" type="Button" parent="."]
+offset_left = 544.0
+offset_top = 543.0
+offset_right = 650.0
+offset_bottom = 574.0
+text = "Exit to Menu"
 
-[node name="Score" type="Label" parent="."]
-offset_left = 488.0
-offset_top = 59.0
-offset_right = 710.0
-offset_bottom = 104.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 30
-text = "*TOTALSCORE*"
+[node name="Quit Game" type="Button" parent="."]
+offset_left = 551.0
+offset_top = 595.0
+offset_right = 643.0
+offset_bottom = 626.0
+text = "Quit Game"
 
 [node name="Score2" type="Label" parent="."]
-offset_left = 301.0
-offset_top = 198.0
-offset_right = 523.0
-offset_bottom = 243.0
+offset_left = 280.0
+offset_top = 228.0
+offset_right = 995.0
+offset_bottom = 408.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 30
@@ -45,20 +39,34 @@ text = "YOU WON/LOST the barangay SK elections!
 
 You are on the road to representing, hearing, and
 serving the members of your community"
+autowrap_mode = 3
 
-[node name="Exit to Menu" type="Button" parent="."]
-offset_left = 533.0
-offset_top = 465.0
-offset_right = 639.0
-offset_bottom = 496.0
-text = "Exit to Menu"
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 252.0
+offset_top = 110.0
+offset_right = 1009.0
+offset_bottom = 155.0
 
-[node name="Quit Game" type="Button" parent="."]
-offset_left = 540.0
-offset_top = 517.0
-offset_right = 632.0
-offset_bottom = 548.0
-text = "Quit Game"
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+text = "After achieving "
+
+[node name="Score" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+text = "*TOTALSCORE*"
+
+[node name="Label2" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+text = " votes this election...."
 
 [connection signal="pressed" from="Exit to Menu" to="." method="_on_exit_to_menu_pressed"]
 [connection signal="pressed" from="Quit Game" to="." method="_on_quit_game_pressed"]

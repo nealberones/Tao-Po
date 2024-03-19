@@ -12,6 +12,7 @@ extends Node2D
 var paused = false
 var first_passed = false
 var level_start
+
 func _ready():
 	player.set_process_priority(3)
 	pause_menu.hide()

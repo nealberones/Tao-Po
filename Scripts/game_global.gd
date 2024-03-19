@@ -30,7 +30,6 @@ func next_level():
 		current_level = 0
 		saved_current_level = 0
 	Engine.time_scale = 1
-	
 
 func restart_level():
 	get_tree().reload_current_scene()

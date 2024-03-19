@@ -53,7 +53,6 @@ func endCard():
 	Engine.time_scale = 0
 	
 func _on_timer_timeout():
-	end_card.score.text = str(GameGlobalSingleton.l2_score)
 	endCard()
 
 

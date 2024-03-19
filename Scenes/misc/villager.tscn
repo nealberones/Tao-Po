@@ -11,7 +11,7 @@ script = ExtResource("1_dnepp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_0rc4r")
-animation = &"Idle"
+animation = &"Green"
 flip_h = true
 
 [node name="VillagerArea" type="Area2D" parent="."]
