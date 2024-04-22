@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dk4t5q41sr300"
+path="res://.godot/imported/Level 1 - Ping Pong.mp3-b7d9cec963a707440ae7f4cfe82df559.mp3str"
+
+[deps]
+
+source_file="res://Music/Level 1 - Ping Pong.mp3"
+dest_files=["res://.godot/imported/Level 1 - Ping Pong.mp3-b7d9cec963a707440ae7f4cfe82df559.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

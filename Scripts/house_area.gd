@@ -27,14 +27,15 @@ func _ready():
 func convert_to_rival():
 	rivalconverted = true
 	if(current_level == 1):
+		pass
 			# initial score
-		GameGlobalSingleton.l1_score -= 10
+		#GameGlobalSingleton.l1_score -= 50
 	elif(current_level == 2):
 		# initial score
-		GameGlobalSingleton.l2_score -= 10
+		GameGlobalSingleton.l2_score -= 50
 	elif(current_level == 3):
 		# initial score
-		GameGlobalSingleton.l3_score -= 10
+		GameGlobalSingleton.l3_score -= 50
 	for child in get_children():
 		if child is Villager:
 			print("Villager has been converted to your rival!")
@@ -55,13 +56,13 @@ func _process(delta):
 			#add score corresponding to child house/villagers in house area
 			if(current_level == 1):
 				# initial score
-				GameGlobalSingleton.l1_score += 10
+				GameGlobalSingleton.l1_score += 100
 			elif(current_level == 2):
 				# initial score
-				GameGlobalSingleton.l2_score += 10
+				GameGlobalSingleton.l2_score += 100
 			elif(current_level == 3):
 				# initial score
-				GameGlobalSingleton.l3_score += 10
+				GameGlobalSingleton.l3_score += 100
 		else:
 			# Add wrong card effects
 			pass

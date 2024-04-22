@@ -9,6 +9,8 @@ extends Node2D
 @onready var timer = $Timer
 @onready var time_left_label = $CanvasLayer/TimeLeftLabel
 @onready var player_score_label = $CanvasLayer/Panel/PlayerScore
+@onready var raineffect = $RainEffect
+@onready var raintimer = $RainTimer
 var paused = false
 var first_passed = false
 var level_start
@@ -37,6 +39,8 @@ func _process(delta):
 	if first_passed and text_box.is_empty() and not level_start:
 		level_start = true
 		timer.start()
+		raintimer.start()	
+	
 	
 func pauseMenu():
 	if paused:
@@ -65,3 +69,14 @@ func _on_text_trigger_body_entered(body):
 		text_box.queue_text("Another challenge faced in the reality of the Sangguaniang Kabataan elections are vote buying- and the destroying of the reputation of their opponents through gossip and fault-finding.")
 		text_box.queue_text("and the destroying of the reputation of their opponents through gossip and fault-finding.")
 		text_box.queue_text("Goodluck!")
+
+
+func _on_rain_timer_timeout():
+	if raineffect.emitting:
+		raineffect.emitting = false
+		player.FRICTION = 10
+		player.ACCELERATION = 20
+	else:
+		raineffect.emitting = true
+		player.FRICTION = 5
+		player.ACCELERATION = 10

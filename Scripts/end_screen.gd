@@ -9,6 +9,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#determine final description based on score
+	
 	if GameGlobalSingleton.total_score > 100:
 		finalresult.text = "You won the election! You are on the road to representing, hearing, and serving the members of your community!"
 	else:

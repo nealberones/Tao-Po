@@ -1,6 +1,7 @@
-[gd_scene load_steps=49 format=3 uid="uid://b3mc5p2qkyoo1"]
+[gd_scene load_steps=52 format=3 uid="uid://b3mc5p2qkyoo1"]
 
 [ext_resource type="Script" path="res://Scripts/tutorial.gd" id="1_2ppvl"]
+[ext_resource type="AudioStream" uid="uid://dk4t5q41sr300" path="res://Music/Level 1 - Ping Pong.mp3" id="2_4krae"]
 [ext_resource type="Texture2D" uid="uid://yh6kgsojak65" path="res://Assets/kenney_pixel-platformer/Background/background_0001.png" id="2_pjaiu"]
 [ext_resource type="PackedScene" uid="uid://cjgu3tnby0fvc" path="res://Scenes/misc/Houses.tscn" id="4_cu4k2"]
 [ext_resource type="Texture2D" uid="uid://boiuou1or2ggv" path="res://Assets/kenney_platformer-art-pixel-redux/Tilemap/tilemap_packed.png" id="5_v8u4b"]
@@ -17,7 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://e3cvd18e2elc" path="res://Scenes/ui/end_card.tscn" id="13_p0kei"]
 [ext_resource type="Texture2D" uid="uid://xyqepbcav3rs" path="res://Assets/final/house1.png" id="15_nst48"]
 [ext_resource type="PackedScene" uid="uid://dwkqdxtdqc3mf" path="res://Scenes/misc/house_area.tscn" id="16_6xoxa"]
+[ext_resource type="AudioStream" uid="uid://cictwgmrotlug" path="res://SFX/jump.wav" id="16_h0jue"]
 [ext_resource type="Script" path="res://Scripts/villager.gd" id="17_2k5n2"]
+[ext_resource type="AudioStream" uid="uid://b5ocf8lsk84vn" path="res://SFX/walk grass.wav" id="17_urucy"]
 [ext_resource type="SpriteFrames" uid="uid://dv4ke4x71x1mu" path="res://Animations/villager_1.tres" id="18_suirs"]
 [ext_resource type="FontFile" uid="uid://ck6tiaib3n5dy" path="res://Assets/Born2bSportyV2.ttf" id="19_nchik"]
 
@@ -3493,6 +3496,11 @@ font_color = Color(0, 0, 0, 1)
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_2ppvl")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4krae")
+volume_db = -20.0
+autoplay = true
+
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -792.0
 offset_top = -271.0
@@ -3566,6 +3574,15 @@ clip_contents = true
 metadata/_edit_use_anchors_ = true
 
 [node name="EndCard" parent="Player/Camera2D2" instance=ExtResource("13_p0kei")]
+
+[node name="JumpSFX" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("16_h0jue")
+pitch_scale = 1.65
+
+[node name="WalkSFX" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("17_urucy")
+volume_db = -20.0
+pitch_scale = 0.5
 
 [node name="TextBox" parent="." instance=ExtResource("8_tc7os")]
 

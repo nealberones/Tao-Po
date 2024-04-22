@@ -6,16 +6,21 @@ class_name Player
 @export var JUMP_RELEASE_FORCE: int = -120
 @export var MAX_SPEED: int = 50
 @export var ACCELERATION: int = 10
-@export var FRICTION: int = 10
+@export var FRICTION: int = 5
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 @onready var animatedSprite = $AnimatedSprite2D
 @onready var Ekey = $EPrompt
 @onready var cards = $CardsSprite
 @onready var camera = $Camera2D2
+@onready var jumpsound = $JumpSFX
+@onready var walksound = $WalkSFX
+@onready var raineffect = $RainEffect
+@onready var raintimer =  $RainTimer
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var near_villager = false
 var controls_locked = false
+
 #var GameGlobalSingleton.color_game_running = false;
 
 func _ready():
@@ -67,19 +72,27 @@ func _physics_process(delta):
 		# flip sprite when moving right
 		animatedSprite.flip_h = false
 		animatedSprite.play("Walk")
+		if is_on_floor:
+			if !walksound.playing:
+				walksound.play()
+		
 	elif Input.is_action_pressed("ui_left") and not GameGlobalSingleton.color_game_running and not controls_locked:
 		velocity.x -= SPEED
 		# flip sprite when moving left
 		animatedSprite.flip_h = true
 		animatedSprite.play("Walk")
+		if is_on_floor:
+			if !walksound.playing:
+				walksound.play()
 	else:
 		apply_friction()
-		animatedSprite.play("Idle")
+		#animatedSprite.play("Idle")
 		
 #	# Handle Jump.
 	if is_on_floor():
 		if Input.is_action_just_pressed("ui_up") and not GameGlobalSingleton.color_game_running and not controls_locked:
 			velocity.y = JUMP_VELOCITY
+			jumpsound.play()
 	else:
 		animatedSprite.animation = "Jump"
 		animatedSprite.frame = 0
@@ -95,6 +108,7 @@ func _physics_process(delta):
 	if just_landed:
 		animatedSprite.play("Idle")
 		animatedSprite.frame = 1
+		
 
 func apply_friction():
 	velocity.x = move_toward(velocity.x, 0, FRICTION)

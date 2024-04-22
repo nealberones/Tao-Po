@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://rx7p3lromgvc"]
+[gd_scene load_steps=49 format=3 uid="uid://rx7p3lromgvc"]
 
 [ext_resource type="Script" path="res://Scripts/level_2.gd" id="1_ntr5f"]
 [ext_resource type="Texture2D" uid="uid://danah4vgenmck" path="res://Assets/kenney_pixel-platformer/Background/background_0000.png" id="2_wy8uy"]
@@ -16,6 +16,10 @@
 [ext_resource type="FontFile" uid="uid://ck6tiaib3n5dy" path="res://Assets/Born2bSportyV2.ttf" id="14_xis2j"]
 [ext_resource type="PackedScene" uid="uid://b5cxip00cvmce" path="res://Scenes/misc/terrains.tscn" id="15_ahuug"]
 [ext_resource type="Texture2D" uid="uid://b6lalsfoejfb6" path="res://Assets/final/revised_terrain.png" id="16_pa7wl"]
+[ext_resource type="AudioStream" uid="uid://cictwgmrotlug" path="res://SFX/jump.wav" id="17_7qfrb"]
+[ext_resource type="AudioStream" uid="uid://5wldp0h8inc1" path="res://Music/Level 2 - Hubbub.mp3" id="17_a44kc"]
+[ext_resource type="AudioStream" uid="uid://b5ocf8lsk84vn" path="res://SFX/walk grass.wav" id="18_jdlgi"]
+[ext_resource type="Texture2D" uid="uid://d1w5dq6avx0vq" path="res://Assets/raindrop.png" id="20_21cfw"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_vtte7"]
 tile_data = PackedInt32Array(65536, 524288, 21, 131072, 524288, 22, 1, 0, 21, 65537, 589824, 21, 131073, 589824, 22, 196609, 262144, 21, 262145, 262144, 22, 65538, 655360, 21, 131074, 655360, 22)
@@ -279,14 +283,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_0186f"]
+offsets = PackedFloat32Array(0, 0.409836)
+
 [node name="level2" type="Node2D"]
 script = ExtResource("1_ntr5f")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -606.0
-offset_top = -406.0
-offset_right = 3357.0
-offset_bottom = 1935.0
+offset_left = -600.0
+offset_top = -416.0
+offset_right = 3363.0
+offset_bottom = 1925.0
 texture = ExtResource("2_wy8uy")
 
 [node name="MiscObjects" type="TileMap" parent="."]
@@ -480,7 +487,41 @@ metadata/_edit_use_anchors_ = true
 [node name="EndCard" parent="Player/Camera2D2" instance=ExtResource("10_vjoc5")]
 position = Vector2(0, 40)
 
+[node name="JumpSFX" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("17_7qfrb")
+pitch_scale = 1.65
+
+[node name="WalkSFX" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("18_jdlgi")
+volume_db = -20.0
+pitch_scale = 0.5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_a44kc")
+volume_db = -20.0
+autoplay = true
+
+[node name="RainEffect" type="CPUParticles2D" parent="."]
+position = Vector2(817, 107)
+rotation = 0.180103
+emitting = false
+amount = 3000
+lifetime = 1.2
+local_coords = true
+texture = ExtResource("20_21cfw")
+emission_shape = 3
+emission_rect_extents = Vector2(3000, 1000)
+direction = Vector2(0, 1)
+spread = 0.0
+scale_amount_min = 0.01
+scale_amount_max = 0.02
+color_ramp = SubResource("Gradient_0186f")
+
+[node name="RainTimer" type="Timer" parent="."]
+wait_time = 10.0
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="TextTrigger" to="." method="_on_text_trigger_body_entered"]
 [connection signal="area_entered" from="Player/House_detect" to="Player" method="_on_house_detect_area_entered" flags=18]
 [connection signal="area_exited" from="Player/House_detect" to="Player" method="_on_house_detect_area_exited" flags=18]
+[connection signal="timeout" from="RainTimer" to="." method="_on_rain_timer_timeout"]

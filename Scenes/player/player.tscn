@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bcqk48j3hep2c"]
+[gd_scene load_steps=30 format=3 uid="uid://bcqk48j3hep2c"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_w4j1s"]
 [ext_resource type="Texture2D" uid="uid://bwtg0m0vf22y4" path="res://Assets/final/cards_character.png" id="2_b5rul"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://wbybdismkivc" path="res://Assets/final/finalcards.png" id="4_4alun"]
 [ext_resource type="PackedScene" uid="uid://d0eqfxw3n7fhv" path="res://Scenes/ui/in_game_menu.tscn" id="6_30k5l"]
 [ext_resource type="PackedScene" uid="uid://e3cvd18e2elc" path="res://Scenes/ui/end_card.tscn" id="7_rdwsk"]
+[ext_resource type="AudioStream" uid="uid://cictwgmrotlug" path="res://SFX/jump.wav" id="8_ooso4"]
+[ext_resource type="AudioStream" uid="uid://b5ocf8lsk84vn" path="res://SFX/walk grass.wav" id="9_2hbay"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_43a8k"]
 atlas = ExtResource("2_b5rul")
@@ -198,6 +200,15 @@ clip_contents = true
 metadata/_edit_use_anchors_ = true
 
 [node name="EndCard" parent="Camera2D2" instance=ExtResource("7_rdwsk")]
+
+[node name="JumpSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ooso4")
+pitch_scale = 1.65
+
+[node name="WalkSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_2hbay")
+volume_db = -18.255
+pitch_scale = 0.49
 
 [connection signal="area_entered" from="House_detect" to="." method="_on_house_detect_area_entered"]
 [connection signal="area_exited" from="House_detect" to="." method="_on_house_detect_area_exited"]
