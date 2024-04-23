@@ -8,6 +8,7 @@ extends Node2D
 @onready var timer = $Timer
 @onready var time_left_label = $CanvasLayer/TimeLeftLabel
 @onready var player_score_label = $CanvasLayer/Panel/PlayerScore
+@onready var popup = $Popup
 # Weather Parameter
 var paused = false
 var first_passed = false
@@ -17,6 +18,7 @@ func _ready():
 	player.set_process_priority(3)
 	pause_menu.hide()
 	end_card.hide()
+	popup.hide()
 	level_start = false
 
 func _process(delta):
