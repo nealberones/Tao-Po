@@ -4,6 +4,9 @@ class_name Villager
 @export var SKIN: String = "res://Animations/villager_1.tres"
 @export var increment_val : float
 @export var color_num = 0
+@export var voting_player = false
+@export var voting_rival = false
+@export var voting_neutral = true
 @onready var animatedSprite = $AnimatedSprite2D
 
 # FOR RIVAL SYSTEM: Decrement a certain number of points/ timer 
@@ -11,13 +14,10 @@ class_name Villager
 # Mistakes decrement score by certain number (can go negative)
 
 var near_player = false
-var voting_player
-var voting_rival
-var voting_neutral
 var color_error
 
 func _ready():
-	voting_neutral = false
+	voting_neutral = true
 	animatedSprite.frames = load(SKIN)
 	animatedSprite.play("Idle")
 

@@ -19,31 +19,35 @@ var rivalconverted
 var normal
 
 func _ready():
+	normal = true
 	rivaltimer.wait_time = rivalcooldown
 	house_cards.frame = house_card_frame
 	GameGlobalSingleton.house_current_frame = house_cards.frame
 	house_cards.hide()
 
 func convert_to_rival():
+	converted = false
 	rivalconverted = true
 	if(current_level == 1):
 		pass
 			# initial score
-		#GameGlobalSingleton.l1_score -= 50
+		GameGlobalSingleton.l1_score -= 50
 	elif(current_level == 2):
 		# initial score
-		GameGlobalSingleton.l2_score -= 50
+		GameGlobalSingleton.l2_score -= 70
 	elif(current_level == 3):
 		# initial score
-		GameGlobalSingleton.l3_score -= 50
+		GameGlobalSingleton.l3_score -= 70
 	for child in get_children():
 		if child is Villager:
 			print("Villager has been converted to your rival!")
 			child.voting_rival = true
+			child.voting_player = false
+			child.animatedSprite.play("Red")
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if GameGlobalSingleton.color_game_running and player_in_area:
+	if GameGlobalSingleton.color_game_running and player_in_area and not converted:
 		begin_color_game()
 	
 	if Input.is_action_just_pressed("ui_accept") and GameGlobalSingleton.color_game_running and player_in_area:
@@ -63,6 +67,9 @@ func _process(delta):
 			elif(current_level == 3):
 				# initial score
 				GameGlobalSingleton.l3_score += 100
+			converted = true
+			rivalconverted = false
+			normal = false
 		else:
 			# Add wrong card effects
 			pass
@@ -70,8 +77,6 @@ func _process(delta):
 	# Ends color game when escape is pressed
 	if Input.is_action_just_pressed("ui_cancel") and GameGlobalSingleton.color_game_running:
 		end_color_game()
-	
-	
 
 func begin_color_game():
 	house_cards.show()

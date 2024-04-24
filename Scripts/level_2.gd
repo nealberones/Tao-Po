@@ -64,7 +64,7 @@ func _on_text_trigger_body_entered(body):
 	if body is Player and not first_passed:
 		first_passed = true
 		text_box.queue_text("Another day, another purok! Welcome to Purok Handa which has more houses. ")
-		text_box.queue_text("You will be given 2 minutes and 30 seconds to perform your house-to-house campaigning in this area.")
+		text_box.queue_text("You will be given 90 seconds to perform your house-to-house campaigning in this area.")
 		text_box.queue_text("The catch now is your rival candidate will also be campaigning in the same purok as you.")
 		text_box.queue_text("Another challenge faced in the reality of the Sangguaniang Kabataan elections are vote buying- and the destroying of the reputation of their opponents through gossip and fault-finding.")
 		text_box.queue_text("and the destroying of the reputation of their opponents through gossip and fault-finding.")

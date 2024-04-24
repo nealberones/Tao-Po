@@ -26,9 +26,9 @@ _data = {
 [node name="LabelContainer" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_top = 9.83572
+offset_top = 8.06891
 offset_right = 40.0
-offset_bottom = 49.8357
+offset_bottom = 48.0689
 
 [node name="Label" type="Label" parent="LabelContainer"]
 layout_mode = 0
@@ -46,3 +46,7 @@ autoplay = "new_animation"
 libraries = {
 "": SubResource("AnimationLibrary_xxbbc")
 }
+
+[node name="PopupTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true

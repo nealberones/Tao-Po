@@ -53,6 +53,11 @@ func endCard():
 	end_card.score.text = str(GameGlobalSingleton.l1_score)
 	end_card.show()
 	Engine.time_scale = 0
+	
+#func toggle_popup():
+#	if 
+#	popup.show()
+#	popup.get_node("PopupTimer").start()
 
 func _on_text_trigger_body_entered(body):
 	if body is Player and not first_passed:
