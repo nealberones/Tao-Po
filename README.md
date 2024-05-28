@@ -1,2 +1,3 @@
 # Tao-Po
  
+# This study serves to gather information about the status of local elections in Sangguniang Kabataan and aid in the development of a platformer video game about a campaigning method called house-to-house consultation. This paper will supplement the development of a video game about this aspect of SK, the goal of which is to teach its audience about the processes, protocols, and rules regarding the election and campaigning for a position in SK, along with an entertaining and challenging experience. In addition to this, the participants will learn what factors to consider when considering a new SK official. 
